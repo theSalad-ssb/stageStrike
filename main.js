@@ -38,11 +38,6 @@ $(document).ready(function(){
 	document.getElementById("strikeBan").innerHTML="Strike";
 }
 });
-function login(){
-	$.post("https://stageStrike.thesalad.repl.co",{purpose:"login",user:document.getElementById("uname").value,ccode:document.getElementById("ccode").value},function(data){
-		console.log(data);
-	});
-}
 function makeNew(){
 	document.getElementById("newAcct").style="display:inline";
 	document.getElementById("login").style="display:none";
@@ -51,7 +46,9 @@ function submitNew(){
 	//POST new details to server, make a new account there, tell user their connect code, set connect code and uname as cookies
 }
 function submitStrike(){
-	//POST the strikes to the server
+	if(totalFalse()==banNeed){
+		setStrikeForm();
+	}
 }
 function isValidCode(id){
 	const check=document.getElementById(id).value;
@@ -147,4 +144,15 @@ function totalFalse(){
 		}
 	}
 	return total;
+}
+function setStrikeForm(){
+	document.getElementById("stageReset").click();
+	var newStageId;
+	for(var i in stages){
+		newStageId=i+"C";
+		if(stages[i]==false){
+			document.getElementById(newStageId).click();
+		}
+	}
+	document.getElementById("stageFormSub").click();
 }

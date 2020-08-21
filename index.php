@@ -1,3 +1,5 @@
+<?php echo hi
+?>
 <html>
 	<head>
 		<title>Strike your stages</title>
@@ -16,8 +18,6 @@
 		</style>
 	</head>
 	<body>
-		<meta http-equiv="Refresh" content="0; url='./index.php'" />
-		<?php echo hi ?>
 		<script src="jquery-3.5.1.min.js"></script>
 		<script src="main.js"></script>
 		<input type="text" style="display:none" id="goodName">
